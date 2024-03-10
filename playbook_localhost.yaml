@@ -1,5 +1,8 @@
 - name: Local host setup
   hosts: localhost
+  become: yes
   tasks:
   - name: Ping localhost
     ping: {}
+  - name: apt update
+    command: "apt update"

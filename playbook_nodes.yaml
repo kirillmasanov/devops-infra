@@ -1,0 +1,11 @@
+- name: Test connection to my servers
+  hosts: nodes
+  become: yes
+  tasks:
+  - name: Ping my servers
+    ping: {}
+  - name: Install neofetch
+    become: yes
+    apt:
+      name: neofetch
+      state: present
