@@ -1,3 +1,4 @@
+# Ansible
 The Ansible configuration file can be stored in different locations (files listed in
 priority reduction):
 - `ANSIBLE_CONFIG` (variable environment)
