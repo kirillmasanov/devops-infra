@@ -6,19 +6,17 @@ priority reduction):
 - `~/.ansible.cfg` (in the user's home catalog)
 - `/etc/ansible/ansible.cfg`
 
-You can generate an Ansible configuration file, `ansible.cfg`, that lists all default settings as follows:
-```
-ansible-config init --disabled > ansible.cfg
-```
-Include available plugins to create a more complete Ansible configuration as follows:
-```
-ansible-config init --disabled -t all > ansible.cfg
-```
+You can generate an Ansible configuration file, `ansible.cfg`, that lists all default settings as follows: \
+`ansible-config init --disabled > ansible.cfg`
+
+Include available plugins to create a more complete Ansible configuration as follows: \
+`ansible-config init --disabled -t all > ansible.cfg`
+
 ```bash
 ansible-inventory --graph
 ansible-inventory --list
 ```
-```
+```bash
 ansible all -m ping
 ansible all -m setup
 ansible all -m shell -a "uptime"
@@ -35,12 +33,15 @@ ansible all -m service -a "name=<service name> state=started enabled=yes"
 ansible-doc-l
 ```
 
-Roles:
+### Roles:
 ```
 ansible-galaxy init <role_name>
 ```
-Verifying Playbooks:
-```
+/etc/ansible/ansible.cfg \
+`roles_path = /etc/ansibl/roles`
+
+### Verifying Playbooks:
+```bash
 ansible-playbook <file> --check
 ansible-playbook <file> --check --diff
 ansible-playbook <file> --syntax-check
