@@ -12,6 +12,8 @@ You can generate an Ansible configuration file, `ansible.cfg`, that lists all de
 Include available plugins to create a more complete Ansible configuration as follows: \
 `ansible-config init --disabled -t all > ansible.cfg`
 
+`ansible-config dump`
+
 ```bash
 ansible-inventory --graph
 ansible-inventory --list
@@ -29,13 +31,16 @@ ansible all -m yum -a "name=<package> state=removed"
 ansible all -m uri -a "url=<url> return content=yes"
 ansible all -m service -a "name=<service name> state=started enabled=yes"
 ```
-```
+```bash
 ansible-doc-l
 ```
 
 ### Roles:
-```
+```bash
 ansible-galaxy init <role_name>
+ansible-galaxy search <role_name>
+ansible-galaxy install <role_name>
+ansible-galaxy list
 ```
 /etc/ansible/ansible.cfg \
 `roles_path = /etc/ansibl/roles`
