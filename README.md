@@ -24,6 +24,7 @@ ansible all -m setup
 ansible all -m shell -a "uptime"
 ansible all -m command -a "uptime"
 ansible all -a <command>  # a - argument, if no -m - default -m command
+ansible all -a <command> -f 1  # into a single stream for sequential output 
 ansible all -m copy -a "src=<file> dest=<path> mode=777"
 ansible all -m file -a "path=<path> state=absent"
 ansible all -m get url -a "url=<url-link> dest=<path>"
@@ -34,9 +35,16 @@ ansible all -m service -a "name=<service name> state=started enabled=yes"
 
 ```
 ```bash
-ansible-doc-l
+ansible-doc -l  # listing of modules with a short description
 ```
+### Arguments:
+```bash
+-b  # become super user, analog su
+```
+### Vars
+```bash
 
+```
 ### Roles:
 ```bash
 ansible-galaxy init <role_name>
