@@ -40,10 +40,13 @@ ansible-doc -l  # listing of modules with a short description
 ### Arguments:
 ```bash
 -b  # become super user, analog su
+--tags <tags>  # run only tagged tasks
 ```
 ### Vars
+The link in the playbook file to the variable file:
 ```bash
-
+vars_files:
+- vars.yaml
 ```
 ### Roles:
 ```bash
@@ -60,4 +63,14 @@ ansible-galaxy list
 ansible-playbook <file> --check
 ansible-playbook <file> --check --diff
 ansible-playbook <file> --syntax-check
+```
+
+### Ansible Vault
+```bash
+ansible-vault encrypt <file>  # then set the password
+ansible-vault decrypt <file>
+ansible-vault edit <file>
+ansible-vault rekey <file>
+ansible-playbook <file> --ask-vault-pass
+ansible-playbook <file> --vault-password-file <password_file>
 ```
