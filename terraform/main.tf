@@ -15,3 +15,17 @@ provider "vcd" {
     org = var.vcd_org_org
     url = var.vcd_org_url
 }
+
+resource "vcd_network_routed" "internalRouted" {
+  name         = "terraform-net"
+  edge_gateway = var.vcd_org_edge_name
+  gateway = "192.168.200.1"
+  dhcp_pool {
+    start_address = "192.168.200.2"
+    end_address   = "192.168.200.100"
+  }
+  static_ip_pool {
+    start_address = "192.168.200.101"
+    end_address   = "192.168.200.254"
+  }
+}

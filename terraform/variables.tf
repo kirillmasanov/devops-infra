@@ -14,7 +14,7 @@ variable "vcd_org_org" {
 }
 
 variable "vcd_org_url" {
-  default     = "https://vcd.megafon.cloud/tenant/"
+  default     = "https://vcd.megafon.cloud/api"
   description = "vCD Tenant URL"
 }
 
