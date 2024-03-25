@@ -8,10 +8,10 @@ terraform {
 }
 
 provider "vcd" {
-    auth_type = "integrated" #Тип авторизации
-    max_retry_timeout = 10 #Максимальное число попыток соединения
-    user = var.connect["user"] #Имя пользователя
-    password = var.connect["password"] #Пароль пользователя
-    org = var.connect["organization"] #Название организации
-    url = var.connect["url_connect"] #Адрес, на который будут посылаться API-запросы
+    auth_type = "integrated"
+    max_retry_timeout = vcd_org_max_retry_timeout
+    user = var.vcd_org_user
+    password = var.vcd_org_password
+    org = var.vcd_org_org
+    url = var.vcd_org_url
 }
