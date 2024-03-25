@@ -13,6 +13,7 @@ provider "vcd" {
     user = var.vcd_org_user
     password = var.vcd_org_password
     org = var.vcd_org_org
+    vdc = var.vcd_org_vdc
     url = var.vcd_org_url
 }
 
