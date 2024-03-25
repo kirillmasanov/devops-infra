@@ -25,7 +25,7 @@ variable "vcd_org_vdc" {
 
 variable "vcd_org_max_retry_timeout" {
   description = "Retry Timeout"
-  default     = "240"
+  default     = 240
 }
 
 variable "vcd_org_allow_unverified_ssl" {
