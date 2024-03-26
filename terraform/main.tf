@@ -2,7 +2,7 @@ terraform {
     required_providers {
         vcd = {
             source = "vmware/vcd"
-            version = "3.9.0"
+            version = "3.10.0"
         }
     }
     required_version = ">= 0.13"
@@ -14,19 +14,26 @@ provider "vcd" {
     user = var.vcd_org_user
     password = var.vcd_org_password
     org = var.vcd_org_org
-    vdc = var.vcd_org_vdc
+    vdc = var.vcd_org_vdc_name
     url = var.vcd_org_url
     allow_unverified_ssl = var.vcd_org_allow_unverified_ssl
 }
 
-resource "vcd_network_routed" "terraform-net" {
+data "vcd_org_vdc" "vdc1" {
+  name = var.vcd_org_vdc_name
+}
+
+data "vcd_nsxt_edgegateway" "existing" {
+  org  = var.vcd_org_org
+  name = var.vcd_org_edge_name
+  owner_id = data.vcd_org_vdc.vdc1.id
+}
+
+resource "vcd_network_routed_v2" "terraform-net" {
   name         = "terraform-net"
-  edge_gateway = var.vcd_org_edge_name
+  edge_gateway_id = data.vcd_nsxt_edgegateway.existing.id
   gateway = "192.168.200.1"
-  dhcp_pool {
-    start_address = "192.168.200.2"
-    end_address   = "192.168.200.100"
-  }
+  prefix_length = 24
   static_ip_pool {
     start_address = "192.168.200.101"
     end_address   = "192.168.200.254"

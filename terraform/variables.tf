@@ -18,7 +18,7 @@ variable "vcd_org_url" {
   description = "vCD Tenant URL"
 }
 
-variable "vcd_org_vdc" {
+variable "vcd_org_vdc_name" {
   default     = "def_org_vdc"
   description = "vCD Tenant VDC"
 }
