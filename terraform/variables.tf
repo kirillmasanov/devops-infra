@@ -18,7 +18,7 @@ variable "vcd_org_url" {
   description = "vCD Tenant URL"
 }
 
-variable "vcd_org_vdc_name" {
+variable "vcd_org_vdc" {
   default     = "def_org_vdc"
   description = "vCD Tenant VDC"
 }
@@ -44,5 +44,5 @@ variable "vcd_org_catalog" {
 
 variable "template_vm" {
   description = "template vm"
-  default = "ubuntu-server-22.04"
+  default     = "ubuntu-server-22.04"
 }
